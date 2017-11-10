@@ -1,0 +1,124 @@
+/*
+Name: Devon Hills, devon_hills@student.uml.edu
+Affiliation: Computer Science Student, UMass Lowell
+Course: Comp.4610, GUI Programming I
+Updated: 11/5/2017
+Description: Styling for midterm assignment, using Bootstrap
+*/
+
+/* needed html and body spacing */
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    min-height: 100%;
+    padding-top: 50px;
+}
+
+/* navbar styling */
+.navbar {
+    margin-bottom: 0;
+    border-radius: 0;
+}
+
+.navbar-brand {
+    padding: 0;
+    margin-right: 3px;
+}
+
+.navbar-brand > img {
+    height: 100%;
+    padding: 2px;
+    width: auto;
+}
+
+/*borders and spacing*/
+.content {
+    border-right: 1px solid #3B4044;
+}
+
+.row h4 {
+    margin-top: 0;
+}
+
+h3 {
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+hr {
+    height: 1px;
+    background-color: #3B4044;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.btn {
+    margin-bottom: 10px;
+}
+
+
+/* Flexbox styling */
+.row.is-flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.row.is-flex > [class*='col-'] {
+    display: flex;
+    flex-direction: column;
+}
+
+/*
+* And with max cross-browser enabled.
+* Nobody should ever write this by hand.
+* Use a preprocesser with autoprefixing.
+*/
+.row.is-flex {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.row.is-flex > [class*='col-'] {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+/* end flex styling */
+
+/* On small screens, set height to 'auto' for sidenav and grid */
+@media screen and (max-width: 767px) {
+    .content {
+        height: auto;
+        padding: 15px;
+        border-right: none;
+    }
+
+    body {
+        padding-top: 60px;
+    }
+
+    .row {
+        height: auto;
+    }
+
+    .row.is-flex {
+        flex-direction: column;
+    }
+
+}

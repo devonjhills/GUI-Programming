@@ -1,0 +1,169 @@
+/*
+Name: Devon Hills, devon_hills@student.uml.edu
+Affiliation: Computer Science Student, UMass Lowell
+Course: Comp.4610, GUI Programming I
+Created: 17-oct-2017
+Description: This is the third distinct stylesheet.
+*/
+
+/*general layout: colors and font*/
+body {
+    background-color: #36a1ff;
+    font-family: "Trebuchet MS", sans-serif;
+    margin: 0;
+}
+
+/*header block with left aligned image*/
+.imageblock img {
+    float: left;
+    height: 250px;
+    width: 50%;
+    object-fit: none;
+    object-position: center;
+}
+
+/*header block styling*/
+.imageblock {
+    position: relative;
+    overflow: hidden;
+    width: 99%;
+    border: 2px solid #182fd9;
+    background-color: rgb(102, 181, 255);
+    color: black;
+    vertical-align: middle;
+    text-align: center;
+    margin: 50px 5px 5px 5px;
+}
+
+.imageblock:hover {
+    background-color: steelblue;
+}
+
+/*
+ container block for content, left and right subclasses
+ align content into columns
+*/
+div.container {
+    width: 99%;
+    margin: 5px 5px 5px 5px;
+    border: 2px solid #182fd9;
+}
+
+/*highlight each container section with a hover color*/
+div.container:hover {
+    background-color: steelblue;
+}
+
+div.left {
+    float: left;
+    width: 250px;
+    margin-left: 5px;
+}
+
+div.right {
+    margin-left: 270px;
+    border-left: 2px solid #182fd9;
+    padding-left: 1em;
+    width: auto;
+}
+
+/*allow for content to be displayed beneath floated elements*/
+hr {
+    margin: 10px;
+    clear: both;
+}
+
+/*table styling*/
+table {
+    border-collapse: collapse;
+    margin: 5px;
+    background-color: rgb(102, 181, 255);
+    text-align: left;
+}
+
+td, th {
+    border: 2px solid #182fd9;
+    padding: 5px;
+    color: black;
+}
+
+/*Use this to align one element differently from another element, from: https://www.w3schools.com/cssref/sel_nth-child.asp*/
+td:nth-child(2) {
+    text-align: center;
+}
+
+table:hover {
+    background-color: #568cb4;
+}
+
+/*link styling*/
+a:link {
+    color: #182fd9;
+}
+
+a:visited {
+    color: #0af5ff;
+}
+
+/*
+ begin navigation bar styling, used resources from https://www.w3schools.com/css/css_navbar.asp
+*/
+.navbar ul {
+    font-size: 1em;
+    font-weight: bold;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.navbar li {
+    float: left;
+}
+
+.navbar li:last-child a:last-child {
+    border-right: none;
+}
+
+.navbar li a:hover:not(.active), .dropdown:hover .dropbutton {
+    background-color: rgba(64, 64, 64, .5);
+}
+
+.active {
+    background-color: rgba(45, 150, 47, .6);
+}
+
+.navbar li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 5px 10px 5px 10px;
+    text-decoration: none;
+    border-right: 1px solid white;
+    height: 25px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.9);
+    min-width: 160px;
+    z-index: 1;
+}
+
+.navbar .dropdown-content a {
+    color: white;
+    border-right: none;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/*
+ end navigation bar styling
+*/

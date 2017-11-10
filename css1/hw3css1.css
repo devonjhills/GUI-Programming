@@ -1,0 +1,143 @@
+/*
+Name: Devon Hills, devon_hills@student.uml.edu
+Affiliation: Computer Science Student, UMass Lowell
+Course: Comp.4610, GUI Programming I
+Created: 17-oct-2017
+Description: This is the first distinct stylesheet.
+*/
+
+/*general layout: colors and font*/
+body {
+    background-color: darkseagreen;
+    font-family: arial, sans-serif;
+    margin: 0;
+}
+
+/*header block styling*/
+#header1 {
+    position: static;
+    border: 2px solid #000000;
+    padding: 5px;
+    background-color: rgb(7, 87, 3);
+    color: whitesmoke;
+    text-align: center;
+    width: 75%;
+    margin: 50px auto 5px auto;
+}
+
+/*image styling - centered in header block*/
+img {
+    display: block;
+    margin: auto;
+    width: 75%;
+}
+
+/*section blocks styling*/
+div.section {
+    color: whitesmoke;
+    background-color: rgb(7, 87, 3);
+    border: 2px solid #000000;
+    padding: 5px;
+    text-align: left;
+    width: 75%;
+    margin: 5px auto 5px auto;
+}
+
+/*table styling*/
+table {
+    border-collapse: collapse;
+    width: 75%;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb(197, 255, 195);
+    text-align: left;
+}
+
+td, th {
+    border: 2px solid black;
+    padding: 5px;
+    color: #075703;
+}
+
+/*Use this to align one element differently from another element, from: https://www.w3schools.com/cssref/sel_nth-child.asp*/
+td:nth-child(2) {
+    text-align: center;
+}
+
+/*list styling*/
+.section ul {
+    text-align: left;
+}
+
+/*link styling*/
+a:link {
+    color: aqua;
+}
+
+a:visited {
+    color: mediumpurple;
+}
+
+/*
+ begin navigation bar styling, used resources from https://www.w3schools.com/css/css_navbar.asp
+*/
+.navbar ul {
+    font-size: 1em;
+    font-weight: bold;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.navbar li {
+    float: left;
+}
+
+.navbar li:last-child a:last-child {
+    border-right: none;
+}
+
+.navbar li a:hover:not(.active), .dropdown:hover .dropbutton {
+    background-color: rgba(64, 64, 64, .5);
+}
+
+.active {
+    background-color: rgba(45, 150, 47, .6);
+}
+
+.navbar li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 5px 10px 5px 10px;
+    text-decoration: none;
+    border-right: 1px solid white;
+    height: 25px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.9);
+    min-width: 160px;
+    z-index: 1;
+}
+
+.navbar .dropdown-content a {
+    color: white;
+    border-right: none;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/*
+ end navigation bar styling
+*/

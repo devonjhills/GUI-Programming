@@ -1,0 +1,145 @@
+/*
+Name: Devon Hills, devon_hills@student.uml.edu
+Affiliation: Computer Science Student, UMass Lowell
+Course: Comp.4610, GUI Programming I
+Created: 17-oct-2017
+Description: This is the second distinct stylesheet.
+*/
+
+/*general layout: colors and font*/
+body {
+    background-color: black;
+    font-family: Monospaced, monospace;
+    margin: 0;
+}
+
+/*container for image w/ text on top*/
+#container {
+    position: relative;
+    color: antiquewhite;
+    text-align: center;
+}
+
+/*text centered over image*/
+.img_center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-shadow: 2px 2px black;
+    font-size: 4vw;
+}
+
+img {
+    width: 99%;
+    margin-top: 50px;
+}
+
+/*section block styling*/
+div.section {
+    color: whitesmoke;
+    border: 2px dotted white;
+    text-align: center;
+    margin-top: 10px;
+    width: 99%;
+}
+
+/*table styling*/
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+td, th {
+    border: 2px dotted white;
+    padding: 5px;
+    color: white;
+}
+
+/*list styling*/
+.section ul {
+    text-align: left;
+}
+
+.section ol {
+    text-align: left;
+}
+
+/*link styling*/
+a:link {
+    color: whitesmoke;
+}
+
+a:visited {
+    color: darkcyan;
+}
+
+a:hover {
+    color: cyan;
+}
+
+/*
+ begin navigation bar styling, used resources from https://www.w3schools.com/css/css_navbar.asp
+*/
+.navbar ul {
+    font-size: 1em;
+    font-weight: bold;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.navbar li {
+    float: left;
+}
+
+.navbar li:last-child a:last-child {
+    border-right: none;
+}
+
+.navbar li a:hover:not(.active), .dropdown:hover .dropbutton {
+    background-color: rgba(64, 64, 64, .5);
+}
+
+.active {
+    background-color: rgba(45, 150, 47, .6);
+}
+
+.navbar li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 5px 10px 5px 10px;
+    text-decoration: none;
+    border-right: 1px solid white;
+    height: 25px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.9);
+    min-width: 160px;
+    z-index: 1;
+}
+
+.navbar .dropdown-content a {
+    color: white;
+    border-right: none;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/*
+ end navigation bar styling
+*/

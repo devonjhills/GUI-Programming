@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+ Name: Devon Hills, devon_hills@student.uml.edu
+ Affiliation: Computer Science Student, UMass Lowell
+ Course: Comp.4610, GUI Programming I
+ Updated: 11/4/2017
+ Description: Part 2 of the midterm, to implement a website to compare options for car financing.
+-->
+
+<!--page metadata-->
+<head>
+    <meta charset="UTF-8">
+    <title>Midterm - Car Financing</title>
+
+    <!--bootstrap requirements - CDN version-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+
+    <!-- slate theme-->
+    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/slate/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-RpX8okQqCyUNG7PlOYNybyJXYTtGQH+7rIKiVvg1DLg6jahLEk47VvpUyS+E2/uJ" crossorigin="anonymous">
+
+    <!-- fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- my styling -->
+    <link rel="stylesheet" href="../../css1/bootmidterm.css" type="text/css">
+
+    <!-- my javascript -->
+    <script src="../../js/midtermpt2.js"></script>
+
+</head>
+
+<body>
+
+<!--navbar for site navigation-->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#"><img src="https://i.imgur.com/mXz5FYk.png" class="img-rounded"
+                                                  alt="Matrix Nav"></a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li><a href="../../index.html">Home</a></li>
+                <li class="active"><a href="#">Midterm: Car Financing</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href=mailto:devon_hills@student.uml.edu>Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!--header for page-->
+<div class="container-fluid">
+    <h1>Vehicle Financing Options</h1>
+</div>
+
+<hr>
+
+<div class="container-fluid">
+    <div class="row is-flex">
+        <div class="col-sm-4 content">
+            <div class="form-group">
+                <label class="control-label">MSRP</label>
+                <div class="input-group">
+                    <span class="input-group-addon input-sm">$</span>
+                    <input class="form-control input-sm" type="number" id="msrp" placeholder="18860" value="">
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 content">
+            <div class="form-group">
+                <label class="control-label">Total Monthly Payments</label>
+                <div class="input-group">
+                    <span class="input-group-addon input-sm">#</span>
+                    <input class="form-control input-sm" type="number" id="monthly" placeholder="36" value="">
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 content">
+            <div class="form-group">
+                <label class="control-label">Miles Driven Per Year</label>
+                <div class="input-group">
+                    <span class="input-group-addon input-sm">#</span>
+                    <input class="form-control input-sm" type="number" id="mpy" placeholder="15000" value="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr>
+
+<div class="container-fluid">
+    <div class="row is-flex">
+        <div class="col-sm-4 content">
+            <div class="well well-sm">
+                <h4>Finance Option 1</h4>
+
+                <div class="form-group">
+                    <label class="control-label">Down Payment</label>
+                    <div class="input-group">
+                        <input class="form-control input-sm" type="number" id="down1" placeholder="20" value="">
+                        <span class="input-group-addon input-sm">%</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Interest Rate</label>
+                    <div class="input-group">
+                        <input class="form-control input-sm" type="number" id="interest1" placeholder="5" value="">
+                        <span class="input-group-addon input-sm">%</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Discount</label>
+                    <div class="input-group">
+                        <span class="input-group-addon input-sm">$</span>
+                        <input class="form-control input-sm" type="number" id="disc1" placeholder="1861" value="">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Rebate</label>
+                    <div class="input-group">
+                        <span class="input-group-addon input-sm">$</span>
+                        <input class="form-control input-sm" type="number" id="rebate1" placeholder="3500" value="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 content">
+            <div class="well well-sm">
+                <h4>Finance Option 2</h4>
+
+                <div class="form-group">
+                    <label class="control-label">Down Payment</label>
+                    <div class="input-group">
+                        <input class="form-control input-sm" type="number" id="down2" placeholder="20" value="">
+                        <span class="input-group-addon input-sm">%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 content">
+            <div class="well well-sm">
+                <h4>Lease Option</h4>
+
+                <div class="form-group">
+                    <label class="control-label">Down Payment</label>
+                    <div class="input-group">
+                        <input class="form-control input-sm" type="number" id="down3" placeholder="20" value="">
+                        <span class="input-group-addon input-sm">%</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Monthly Lease Payment</label>
+                    <div class="input-group">
+                        <span class="input-group-addon input-sm">$</span>
+                        <input class="form-control input-sm" type="number" id="monthly3" placeholder="99" value="">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Allowed Lease Miles</label>
+                    <div class="input-group">
+                        <span class="input-group-addon input-sm">#</span>
+                        <input class="form-control input-sm" type="number" id="mpy3" placeholder="10500" value="">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Additional Miles Cost</label>
+                    <div class="input-group">
+                        <span class="input-group-addon input-sm">$</span>
+                        <input class="form-control input-sm" type="number" id="milescost" placeholder=".20" value="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr>
+
+<div class="container-fluid">
+    <div class="row is-flex">
+        <div class="col-sm-4 content">
+            <div class="well well-sm">
+                <div class="text-center">
+                    <button type="button" class="btn btn-success" id="calc1" onclick="calcPrices1()">Calculate Finance
+                        Option
+                        1
+                    </button>
+                </div>
+                <div id="divtotal1" class="form-group">
+                    <label class="control-label">Total Cost</label>
+                    <div class="input-group">
+                        <span class="input-group-addon input-sm">$</span>
+                        <input class="form-control input-sm" type="text" id="total1" value="" placeholder="" readonly>
+                    </div>
+                </div>
+                <div id="divmonth1" class="form-group">
+                    <label class="control-label">Cost Per Month</label>
+                    <div class="input-group">
+                        <span class="input-group-addon input-sm">$</span>
+                        <input class="form-control input-sm" type="text" id="monthresult1" value="" placeholder=""
+                               readonly>
+                    </div>
+                </div>
+                <div id="divmiles1" class="form-group">
+                    <label class="control-label">Cost Per Mile</label>
+                    <div class="input-group">
+                        <span class="input-group-addon input-sm">$</span>
+                        <input class="form-control input-sm" type="text" id="mileresult1" value="" placeholder=""
+                               readonly>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 content">
+            <div class="well well-sm">
+                <div class="text-center">
+                    <button type="button" class="btn btn-success" id="calc2" onclick="calcPrices2()">Calculate Finance
+                        Option
+                        2
+                    </button>
+                </div>
+                <div id="divtotal2" class="form-group">
+                    <label class="control-label">Total Cost</label>
+                    <div class="input-group">
+                        <span class="input-group-addon input-sm">$</span>
+                        <input class="form-control input-sm" type="number" id="total2" value="" placeholder="" readonly>
+                    </div>
+                </div>
+                <div id="divmonth2" class="form-group">
+                    <label class="control-label">Cost Per Month</label>
+                    <div class="input-group">
+                        <span class="input-group-addon input-sm">$</span>
+                        <input class="form-control input-sm" type="number" id="monthresult2" value="" placeholder=""
+                               readonly>
+                    </div>
+                </div>
+                <div id="divmiles2" class="form-group">
+                    <label class="control-label">Cost Per Mile</label>
+                    <div class="input-group">
+                        <span class="input-group-addon input-sm">$</span>
+                        <input class="form-control input-sm" type="number" id="mileresult2" value="" placeholder=""
+                               readonly>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 content">
+            <div class="well well-sm">
+                <div class="text-center">
+                    <button type="button" class="btn btn-success" id="calc3" onclick="calcPrices3()">Calculate Lease
+                        Option
+                    </button>
+                </div>
+                <div id="divtotal3" class="form-group">
+                    <label class="control-label">Total Cost</label>
+                    <div class="input-group">
+                        <span class="input-group-addon input-sm">$</span>
+                        <input class="form-control input-sm" type="number" id="total3" value="" placeholder="" readonly>
+                    </div>
+                </div>
+                <div id="divmonth3" class="form-group">
+                    <label class="control-label">Cost Per Month</label>
+                    <div class="input-group">
+                        <span class="input-group-addon input-sm">$</span>
+                        <input class="form-control input-sm" type="number" id="monthresult3" value="" placeholder=""
+                               readonly>
+                    </div>
+                </div>
+                <div id="divmiles3" class="form-group">
+                    <label class="control-label">Cost Per Mile</label>
+                    <div class="input-group">
+                        <span class="input-group-addon input-sm">$</span>
+                        <input class="form-control input-sm" type="number" id="mileresult3" value="" placeholder=""
+                               readonly>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+
+</html>

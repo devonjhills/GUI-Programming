@@ -1,0 +1,66 @@
+/*
+ begin navigation bar styling, used resources from https://www.w3schools.com/css/css_navbar.asp
+*/
+.navbar ul {
+    font-size: 1em;
+    font-weight: bold;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.navbar li {
+    float: left;
+}
+
+.navbar li:last-child a:last-child {
+    border-right: none;
+}
+
+.navbar li a:hover:not(.active), .dropdown:hover .dropbutton {
+    background-color: rgba(64, 64, 64, .5);
+}
+
+.active {
+    background-color: rgba(45, 150, 47, .6);
+}
+
+.navbar li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 5px 10px 5px 10px;
+    text-decoration: none;
+    border-right: 1px solid white;
+    height: 25px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.9);
+    min-width: 160px;
+    z-index: 1;
+}
+
+.navbar .dropdown-content a {
+    color: white;
+    border-right: none;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/*
+ end navigation bar styling
+*/
+
+body {
+    margin: 50px 0 0 0;
+}
