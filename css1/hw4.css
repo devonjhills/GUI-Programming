@@ -2,9 +2,10 @@
 Name: Devon Hills, devon_hills@student.uml.edu
 Affiliation: Computer Science Student, UMass Lowell
 Course: Comp.4610, GUI Programming I
-Updated: 11/5/2017
-Description: Styling for midterm assignment, using Bootstrap
+Updated: 11/10/2017
+Description: Styling for homework 4 page
 */
+
 
 /* needed html and body spacing */
 html {
@@ -14,7 +15,8 @@ html {
 
 body {
     min-height: 100%;
-    padding-top: 50px;
+    padding-top: 60px;
+    padding-bottom: 60px;
 }
 
 /* navbar styling */
@@ -34,18 +36,18 @@ body {
     width: auto;
 }
 
-/*borders and spacing*/
+/*content borders*/
 .content {
     border-right: 1px solid #3B4044;
 }
 
+/*spacing*/
 .row h4 {
     margin-top: 0;
 }
 
 h3 {
     margin-top: 0;
-    margin-bottom: 25px;
 }
 
 hr {
@@ -56,8 +58,22 @@ hr {
     width: 100%;
 }
 
-.btn {
-    margin-bottom: 10px;
+/*table styling*/
+.table, td, th {
+    text-align: center;
+}
+
+.table th:nth-child(1) {
+    background-color: green;
+}
+
+.table td:nth-child(1) {
+    background-color: black;
+    font-weight: bold;
+}
+
+.table th:not(:nth-child(1)) {
+    background-color: black;
 }
 
 

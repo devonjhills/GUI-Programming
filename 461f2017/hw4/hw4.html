@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+ Name: Devon Hills, devon_hills@student.uml.edu
+ Affiliation: Computer Science Student, UMass Lowell
+ Course: Comp.4610, GUI Programming I
+ Updated: 11/10/2017
+ Description: Create a dynamic table based on parameters entered in an HTML form
+-->
+
+<!--page metadata-->
+<head>
+    <meta charset="UTF-8">
+    <title>Assignment 4 - Dynamic Table</title>
+
+    <!--bootstrap requirements - CDN version-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+
+    <!-- slate theme-->
+    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/slate/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-RpX8okQqCyUNG7PlOYNybyJXYTtGQH+7rIKiVvg1DLg6jahLEk47VvpUyS+E2/uJ" crossorigin="anonymous">
+
+    <!-- fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- my styling -->
+    <link rel="stylesheet" href="../../css1/hw4.css" type="text/css">
+
+    <!-- my javascript -->
+    <script src="../../js/hw4.js"></script>
+</head>
+
+<body>
+
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#"><img src="https://i.imgur.com/mXz5FYk.png" class="img-rounded"
+                                                  alt="Matrix Nav"></a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="#">Assignment 4</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href=mailto:devon_hills@student.uml.edu>Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!--header for page-->
+<div class="container-fluid">
+    <h1>Interactive Dynamic Table</h1>
+</div>
+
+<hr>
+
+<div class="container-fluid">
+    <div class="row is-flex">
+        <div class="col-sm-6 content">
+            <div class="form-group">
+                <label class="control-label">Enter Prices Below</label>
+                <div class="input-group">
+                    <span class="input-group-addon input-sm">$</span>
+                    <input class="form-control input-sm" type="number" id="price1" placeholder="Enter Price #1"
+                           value="">
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon input-sm">$</span>
+                    <input class="form-control input-sm" type="number" id="price2" placeholder="Enter Price #2"
+                           value="">
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon input-sm">$</span>
+                    <input class="form-control input-sm" type="number" id="price3" placeholder="Enter Price #3"
+                           value="">
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon input-sm">$</span>
+                    <input class="form-control input-sm" type="number" id="price4" placeholder="Enter Price #4"
+                           value="">
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon input-sm">$</span>
+                    <input class="form-control input-sm" type="number" id="price5" placeholder="Enter Price #5"
+                           value="">
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 content">
+            <div class="form-group">
+                <label class="control-label">Enter Miles Per Gallon Amounts Below</label>
+                <div class="input-group">
+                    <span class="input-group-addon input-sm">#</span>
+                    <input class="form-control input-sm" type="number" id="mpg1" placeholder="Enter MPG #1"
+                           value="">
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon input-sm">#</span>
+                    <input class="form-control input-sm" type="number" id="mpg2" placeholder="Enter MPG #2"
+                           value="">
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon input-sm">#</span>
+                    <input class="form-control input-sm" type="number" id="mpg3" placeholder="Enter MPG #3"
+                           value="">
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon input-sm">#</span>
+                    <input class="form-control input-sm" type="number" id="mpg4" placeholder="Enter MPG #4"
+                           value="">
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon input-sm">#</span>
+                    <input class="form-control input-sm" type="number" id="mpg5" placeholder="Enter MPG #5"
+                           value="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr>
+
+<div class="container-fluid">
+    <input type="button" id="showForm" value="Show Table">
+</div>
+
+<div class="container-fluid">
+    <div class="row is-flex">
+        <div class="col-sm-12">
+
+            <table id="resultTable" class="table table-bordered" style="display: none">
+                <thead>
+                <tr>
+                    <th>Price/Fuel Consumption</th>
+                    <th>Price 1</th>
+                    <th>Price 2</th>
+                    <th>Price 3</th>
+                    <th>Price 4</th>
+                    <th>Price 5</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>MPG 1</td>
+                    <td>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon input-sm">$</span>
+                                <input class="form-control input-sm" type="number" id="result1-1" value=""
+                                       placeholder="" readonly>
+                                <span class="input-group-addon input-sm">/mi</span>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="input-group">
+                            <span class="input-group-addon input-sm">$</span>
+                            <input class="form-control input-sm" type="number" id="result2-1" value="" placeholder=""
+                                   readonly>
+                            <span class="input-group-addon input-sm">/mi</span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="input-group">
+                            <span class="input-group-addon input-sm">$</span>
+                            <input class="form-control input-sm" type="number" id="result3-1" value="" placeholder=""
+                                   readonly>
+                            <span class="input-group-addon input-sm">/mi</span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="input-group">
+                            <span class="input-group-addon input-sm">$</span>
+                            <input class="form-control input-sm" type="number" id="result4-1" value="" placeholder=""
+                                   readonly>
+                            <span class="input-group-addon input-sm">/mi</span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="input-group">
+                            <span class="input-group-addon input-sm">$</span>
+                            <input class="form-control input-sm" type="number" id="result5-1" value="" placeholder=""
+                                   readonly>
+                            <span class="input-group-addon input-sm">/mi</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>MPG 2</td>
+                    <td>
+                        <div class="input-group">
+                            <span class="input-group-addon input-sm">$</span>
+                            <input class="form-control input-sm" type="number" id="result1-2" value="" placeholder=""
+                                   readonly>
+                            <span class="input-group-addon input-sm">/mi</span>
+                        </div>
+                    </td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>MPG 3</td>
+                    <td>
+                        <div class="input-group">
+                            <span class="input-group-addon input-sm">$</span>
+                            <input class="form-control input-sm" type="number" id="result1-3" value="" placeholder=""
+                                   readonly>
+                            <span class="input-group-addon input-sm">/mi</span>
+                        </div>
+                    </td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>MPG 4</td>
+                    <td>
+                        <div class="input-group">
+                            <span class="input-group-addon input-sm">$</span>
+                            <input class="form-control input-sm" type="number" id="result1-4" value="" placeholder=""
+                                   readonly>
+                            <span class="input-group-addon input-sm">/mi</span>
+                        </div>
+                    </td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>MPG 5</td>
+                    <td>
+                        <div class="input-group">
+                            <span class="input-group-addon input-sm">$</span>
+                            <input class="form-control input-sm" type="number" id="result1-5" value="" placeholder=""
+                                   readonly>
+                            <span class="input-group-addon input-sm">/mi</span>
+                        </div>
+                    </td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
