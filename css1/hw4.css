@@ -80,6 +80,7 @@ hr {
     width: 25%;
     margin-top: 5px;
     margin-bottom: 15px;
+    white-space: normal;
 }
 
 .list-group-item {
@@ -141,7 +142,7 @@ hr {
         flex-direction: column;
     }
 
-    .btn {
+    .mybtn {
         margin-top:10px;
     }
 
