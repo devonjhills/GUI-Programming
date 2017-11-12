@@ -72,6 +72,13 @@ function validateInput() {
             alert("Please fill out all fields");
             return false;
         }
+
+        if ((($(check).is(":visible")) && ($(check).val() < 1)) ||
+            (($(check2).is(":visible")) && ($(check2).val() < 1))) {
+
+            alert("Please enter positive values");
+            return false;
+        }
     }
 
     var x1 = parseFloat(document.getElementById("price1").value);
