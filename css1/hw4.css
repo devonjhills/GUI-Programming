@@ -76,6 +76,15 @@ hr {
     background-color: black;
 }
 
+.mybtn {
+    width: 25%;
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+.list-group-item {
+    padding: 3px 10px;
+}
 
 /* Flexbox styling */
 .row.is-flex {
@@ -130,6 +139,10 @@ hr {
 
     .row.is-flex {
         flex-direction: column;
+    }
+
+    .btn {
+        margin-top:10px;
     }
 
 }
