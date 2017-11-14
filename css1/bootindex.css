@@ -26,10 +26,11 @@ body {
 
 .navbar-brand {
     padding: 0;
-    margin-right: 3px;
+    margin-right: 5px;
 }
 
 .navbar-brand > img {
+    margin-left: 5px;
     height: 100%;
     padding: 2px;
     width: auto;
