@@ -70,7 +70,10 @@
 <div class="container-fluid">
     <div class="jumbotron text-center">
         <h2>Interactive Dynamic Table</h2>
-        <p style="font-size: 1em">This page serves as an example of our first implementation of a single page web app.  A comparison table is generated dynamically based on user input. The user first selects number of fields for comparison, which can be modified before table creation, then validates the data (as per assignment instructions), and then generates a table based on these values.</p>
+        <p style="font-size: 1em">This page serves as an example of our first implementation of a single page web app. A
+            comparison table is generated dynamically based on user input. The user first selects number of fields for
+            comparison, which can be modified before table creation, then validates the data (as per assignment
+            instructions), and then generates a table based on these values.</p>
     </div>
 </div>
 
@@ -79,136 +82,129 @@
 <div class="container-fluid">
     <div class="row is-flex">
         <div class="col-sm-12">
-            <form id="start_form" class="form-inline well text-center">
-                <div class="form-group">
-                    <label for="num-fields" style="font-size: larger">
-                        <button type="button" class="btn btn-success"
-                                onclick="createFields()">Enter number of fields for comparison (1-5)
-                        </button>
-                    </label>
-                    <input class="form-control" type="number" min="1" max="5" id="num-fields" value=""
-                           required>
-
-                </div>
-            </form>
+            <div id="start_form" class="form-group form-inline well text-center">
+                <label class="control-label" style="font-size: larger">
+                    <button type="button" class="btn btn-success"
+                            onclick="createFields()">Enter number of fields for comparison
+                    </button>
+                </label>
+                <input min="1" max="5" class="form-control" type="number" id="numfields" placeholder="1-5"
+                       value="">
+            </div>
         </div>
     </div>
 </div>
 
 <!--set price and MPG values-->
-<form id="price_mpg_form">
-    <div class="container-fluid">
-        <div class="row is-flex">
-            <div class="col-sm-6 content">
-                <div id="price_form" class="form-group well" style="display: none">
-                    <label class="control-label">Enter Costs Per Gallon Below</label>
-                    <div class="input-group" id="p1" style="display: none">
-                        <span class="input-group-addon input-sm">$</span>
-                        <input min="1" class="form-control input-sm" type="number" id="price1"
-                               placeholder="Enter Price #1"
-                               value="" required>
-                    </div>
-                    <div class="input-group" id="p2" style="display: none">
-                        <span class="input-group-addon input-sm">$</span>
-                        <input min="1" class="form-control input-sm" type="number" id="price2"
-                               placeholder="Enter Price #2"
-                               value="">
-                    </div>
-                    <div class="input-group" id="p3" style="display: none">
-                        <span class="input-group-addon input-sm">$</span>
-                        <input min="1" class="form-control input-sm" type="number" id="price3"
-                               placeholder="Enter Price #3"
-                               value="">
-                    </div>
-                    <div class="input-group" id="p4" style="display: none">
-                        <span class="input-group-addon input-sm">$</span>
-                        <input min="1" class="form-control input-sm" type="number" id="price4"
-                               placeholder="Enter Price #4"
-                               value="">
-                    </div>
-                    <div class="input-group" id="p5" style="display: none">
-                        <span class="input-group-addon input-sm">$</span>
-                        <input min="1" class="form-control input-sm" type="number" id="price5"
-                               placeholder="Enter Price #5"
-                               value="">
-                    </div>
+<div class="container-fluid">
+    <div class="row is-flex">
+        <div class="col-sm-6 content">
+            <div id="price_form" class="form-group well" style="display: none">
+                <label class="control-label">Enter Costs Per Gallon Below</label>
+                <div class="input-group" id="p1" style="display: none">
+                    <span class="input-group-addon input-sm">$</span>
+                    <input min="1" class="form-control input-sm" type="number" id="price1"
+                           placeholder="Enter Price #1"
+                           value="" required>
+                </div>
+                <div class="input-group" id="p2" style="display: none">
+                    <span class="input-group-addon input-sm">$</span>
+                    <input min="1" class="form-control input-sm" type="number" id="price2"
+                           placeholder="Enter Price #2"
+                           value="">
+                </div>
+                <div class="input-group" id="p3" style="display: none">
+                    <span class="input-group-addon input-sm">$</span>
+                    <input min="1" class="form-control input-sm" type="number" id="price3"
+                           placeholder="Enter Price #3"
+                           value="">
+                </div>
+                <div class="input-group" id="p4" style="display: none">
+                    <span class="input-group-addon input-sm">$</span>
+                    <input min="1" class="form-control input-sm" type="number" id="price4"
+                           placeholder="Enter Price #4"
+                           value="">
+                </div>
+                <div class="input-group" id="p5" style="display: none">
+                    <span class="input-group-addon input-sm">$</span>
+                    <input min="1" class="form-control input-sm" type="number" id="price5"
+                           placeholder="Enter Price #5"
+                           value="">
                 </div>
             </div>
-            <div class="col-sm-6">
-                <div id="mpg_form" class="form-group well" style="display: none">
-                    <label class="control-label">Enter Miles Per Gallon Amounts Below</label>
-                    <div class="input-group" id="m1" style="display: none">
-                        <span class="input-group-addon input-sm">#</span>
-                        <input min="1" class="form-control input-sm" type="number" id="mpg1" placeholder="Enter MPG #1"
-                               value="">
-                    </div>
-                    <div class="input-group" id="m2" style="display: none">
-                        <span class="input-group-addon input-sm">#</span>
-                        <input min="1" class="form-control input-sm" type="number" id="mpg2" placeholder="Enter MPG #2"
-                               value="">
-                    </div>
-                    <div class="input-group" id="m3" style="display: none">
-                        <span class="input-group-addon input-sm">#</span>
-                        <input min="1" class="form-control input-sm" type="number" id="mpg3" placeholder="Enter MPG #3"
-                               value="">
-                    </div>
-                    <div class="input-group" id="m4" style="display: none">
-                        <span class="input-group-addon input-sm">#</span>
-                        <input min="1" class="form-control input-sm" type="number" id="mpg4" placeholder="Enter MPG #4"
-                               value="">
-                    </div>
-                    <div class="input-group" id="m5" style="display: none">
-                        <span class="input-group-addon input-sm">#</span>
-                        <input min="1" class="form-control input-sm" type="number" id="mpg5"
-                               placeholder="Enter MPG #5"
-                               value="">
-                    </div>
+        </div>
+        <div class="col-sm-6">
+            <div id="mpg_form" class="form-group well" style="display: none">
+                <label class="control-label">Enter Miles Per Gallon Amounts Below</label>
+                <div class="input-group" id="m1" style="display: none">
+                    <span class="input-group-addon input-sm">#</span>
+                    <input min="1" class="form-control input-sm" type="number" id="mpg1" placeholder="Enter MPG #1"
+                           value="">
+                </div>
+                <div class="input-group" id="m2" style="display: none">
+                    <span class="input-group-addon input-sm">#</span>
+                    <input min="1" class="form-control input-sm" type="number" id="mpg2" placeholder="Enter MPG #2"
+                           value="">
+                </div>
+                <div class="input-group" id="m3" style="display: none">
+                    <span class="input-group-addon input-sm">#</span>
+                    <input min="1" class="form-control input-sm" type="number" id="mpg3" placeholder="Enter MPG #3"
+                           value="">
+                </div>
+                <div class="input-group" id="m4" style="display: none">
+                    <span class="input-group-addon input-sm">#</span>
+                    <input min="1" class="form-control input-sm" type="number" id="mpg4" placeholder="Enter MPG #4"
+                           value="">
+                </div>
+                <div class="input-group" id="m5" style="display: none">
+                    <span class="input-group-addon input-sm">#</span>
+                    <input min="1" class="form-control input-sm" type="number" id="mpg5"
+                           placeholder="Enter MPG #5"
+                           value="">
                 </div>
             </div>
         </div>
     </div>
+</div>
 
-    <div class="container-fluid">
-        <div class="row is-flex">
-            <div class="col-sm-12">
-                <div class="text-center" id="valid-div-btn" style="display: none">
-                    <button type="button" class="btn btn-success mybtn" id="showOutput" onclick="validateInput()">
-                        Validate Inputs
-                    </button>
-                </div>
+<div class="container-fluid">
+    <div class="row is-flex">
+        <div class="col-sm-12">
+            <div class="text-center" id="valid-div-btn" style="display: none">
+                <button type="button" class="btn btn-success mybtn" id="showOutput" onclick="validateInput()">
+                    Validate Inputs
+                </button>
             </div>
         </div>
     </div>
-</form>
+</div>
 
 
 <!--show validated inputs and table button-->
-<form id="validated_inputs">
-    <div class="container-fluid">
-        <div class="row is-flex">
-            <div class="col-sm-6 content">
+<div class="container-fluid">
+    <div class="row is-flex">
+        <div class="col-sm-6 content">
 
-                <ul class="list-group well" id="valid1" style="display: none">
-                    <li id="x1" class="list-group-item"></li>
-                    <li id="x2" class="list-group-item"></li>
-                    <li id="x3" class="list-group-item"></li>
-                    <li id="x4" class="list-group-item"></li>
-                    <li id="x5" class="list-group-item"></li>
-                </ul>
-            </div>
-            <div class="col-sm-6">
-                <ul class="list-group well" id="valid2" style="display: none">
-                    <li id="y1" class="list-group-item"></li>
-                    <li id="y2" class="list-group-item"></li>
-                    <li id="y3" class="list-group-item"></li>
-                    <li id="y4" class="list-group-item"></li>
-                    <li id="y5" class="list-group-item"></li>
-                </ul>
+            <ul class="list-group well" id="valid1" style="display: none">
+                <li id="x1" class="list-group-item"></li>
+                <li id="x2" class="list-group-item"></li>
+                <li id="x3" class="list-group-item"></li>
+                <li id="x4" class="list-group-item"></li>
+                <li id="x5" class="list-group-item"></li>
+            </ul>
+        </div>
+        <div class="col-sm-6">
+            <ul class="list-group well" id="valid2" style="display: none">
+                <li id="y1" class="list-group-item"></li>
+                <li id="y2" class="list-group-item"></li>
+                <li id="y3" class="list-group-item"></li>
+                <li id="y4" class="list-group-item"></li>
+                <li id="y5" class="list-group-item"></li>
+            </ul>
 
-            </div>
         </div>
     </div>
-</form>
+</div>
 
 <!--create table button-->
 <div class="container-fluid">
@@ -246,7 +242,7 @@
     <div class="row is-flex">
         <div class="col-sm-12">
             <div class="text-center" id="reset_btn" style="display: none">
-                <button type="reset" class="btn btn-success mybtn" onclick="startOver()">Click here to
+                <button type="button" class="btn btn-success mybtn" onclick="startOver()">Click here to
                     make a new table.
                 </button>
             </div>

@@ -7,13 +7,19 @@
  */
 
 
+
 /**
  * load number of input forms based on value entered
  * @returns {boolean}
  */
 function createFields() {
 
-    var val = parseFloat(document.getElementById("num-fields").value);
+    var val = parseFloat(document.getElementById("numfields").value);
+
+    if ($("#numfields").val() === "") {
+        alert("Please fill out all fields");
+        return false;
+    }
 
     if (val <= 0 || val > 5) {
         alert("Enter a number between 1 and 5");
@@ -44,11 +50,6 @@ function createFields() {
     }
 
     $("#valid-div-btn").show();
-
-    $("#valid1").hide();
-    $("#valid2").hide();
-    $("#table-div-btn").hide();
-    $("#resultTable").hide();
 }
 
 
@@ -58,7 +59,7 @@ function createFields() {
  */
 function validateInput() {
 
-    var val = parseFloat(document.getElementById("num-fields").value);
+    var val = parseFloat(document.getElementById("numfields").value);
 
 
     for (var i = 0; i <= 5; i++) {
@@ -138,7 +139,7 @@ function validateInput() {
  */
 function makeTable() {
 
-    var val = parseFloat(document.getElementById("num-fields").value);
+    var val = parseFloat(document.getElementById("numfields").value);
 
     //add header row
     //from https://www.w3schools.com/jsref/dom_obj_tablehead.asp
@@ -194,10 +195,6 @@ function makeTable() {
     $("#resultTable").show();
     $("#reset_btn").show();
 
-    /*reset forms*/
-    document.getElementById("validated_inputs").reset();
-    document.getElementById("price_mpg_form").reset();
-
 }
 
 function calcCost(x, y) {
@@ -206,7 +203,8 @@ function calcCost(x, y) {
 
 /**
  * start app over
- */
+*/
 function startOver() {
+    console.log("I was pressed!");
     location.reload();
 }
