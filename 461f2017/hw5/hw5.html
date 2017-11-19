@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+ Name: Devon Hills, devon_hills@student.uml.edu
+ Affiliation: Computer Science Student, UMass Lowell
+ Course: Comp.4610, GUI Programming I
+ Updated: 11/18/2017
+ Description: Create a dynamic table - with added jQuery validation
+-->
+
+<!--page metadata-->
+<head>
+    <meta charset="UTF-8">
+    <title>Assignment 4 - Dynamic Table</title>
+    <link rel="icon" href="https://raw.githubusercontent.com/devonjhills/GUI-Programming/master/images/favicon.png">
+
+    <!--bootstrap requirements - CDN version-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+
+    <!--jQuery validation plugin-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
+
+    <!--theme-->
+    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cyborg/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-D9XILkoivXN+bcvB2kSOowkIvIcBbNdoDQvfBNsxYAIieZbx8/SI4NeUvrRGCpDi" crossorigin="anonymous">
+
+
+    <!-- fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- my styling -->
+    <link rel="stylesheet" href="../../css1/hw4.css" type="text/css">
+
+    <!-- my javascript -->
+    <script src="../../js/hw5.js"></script>
+</head>
+
+<body>
+
+<!--navbar-->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <div class="navbar-brand">
+                <img src="https://raw.githubusercontent.com/devonjhills/GUI-Programming/master/images/favicon.png"
+                     alt="Nav">
+            </div>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../461f2017/hw5/hw5.html">Assignment 5</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href=mailto:devon_hills@student.uml.edu>Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!--header for page-->
+<div class="container-fluid">
+    <div class="jumbotron text-center">
+        <h2>Interactive Dynamic Table <br>
+            <small>Updated With jQuery Validation</small>
+        </h2>
+        <p style="font-size: 1em">This page serves as an example of our first implementation of a single page web app. A
+            comparison table is generated dynamically based on user input. The user first selects number of fields for
+            comparison, which can be modified before table creation, then validates the data (as per assignment
+            instructions), and then generates a table based on these values.</p>
+    </div>
+</div>
+
+
+<!--set initial parameters for interactive table-->
+<div class="container-fluid">
+    <div class="row is-flex">
+        <div class="col-sm-8 col-sm-offset-2 text-center">
+            <form id="start_form" onsubmit="return false">
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon">Enter number of fields for comparison</span>
+                        <input min="1" max="5" class="form-control" type="number" id="numfields"
+                               name="numfields" placeholder="1-5" value="">
+                        <div class="input-group-btn">
+                            <button type="submit" class="btn btn-primary" name="field_submit" value="Submit"
+                                    onclick="createFields()">Submit
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!--set price and MPG values-->
+<div class="container-fluid">
+    <div class="row is-flex">
+        <form id="inputs_form" onsubmit="return false">
+            <div class="col-sm-6 content text-center">
+                <div id="price_form" class="form-group well" style="display: none">
+                    <label class="control-label">Enter Costs Per Gallon Below</label>
+                    <div class="input-group" id="p1" style="display: none">
+                        <span class="input-group-addon input-sm">$</span>
+                        <input min="1" class="test form-control input-sm" type="number" id="price1"
+                               placeholder="Enter Price #1" name="price1"
+                               value="">
+                    </div>
+                    <div class="input-group" id="p2" style="display: none">
+                        <span class="input-group-addon input-sm">$</span>
+                        <input min="1" class="test form-control input-sm" type="number" id="price2"
+                               placeholder="Enter Price #2" name="price2"
+                               value="">
+                    </div>
+                    <div class="input-group" id="p3" style="display: none">
+                        <span class="input-group-addon input-sm">$</span>
+                        <input min="1" class="test form-control input-sm" type="number" id="price3"
+                               placeholder="Enter Price #3" name="price3"
+                               value="">
+                    </div>
+                    <div class="input-group" id="p4" style="display: none">
+                        <span class="input-group-addon input-sm">$</span>
+                        <input min="1" class="test form-control input-sm" type="number" id="price4"
+                               placeholder="Enter Price #4" name="price4"
+                               value="">
+                    </div>
+                    <div class="input-group" id="p5" style="display: none">
+                        <span class="input-group-addon input-sm">$</span>
+                        <input min="1" class="test form-control input-sm" type="number" id="price5"
+                               placeholder="Enter Price #5" name="price5"
+                               value="">
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 text-center">
+                <div id="mpg_form" class="form-group well" style="display: none">
+                    <label class="control-label">Enter Miles Per Gallon Amounts Below</label>
+                    <div class="input-group" id="m1" style="display: none">
+                        <span class="input-group-addon input-sm">#</span>
+                        <input min="1" class="test form-control input-sm" type="number" id="mpg1"
+                               placeholder="Enter MPG #1" name="mpg1"
+                               value="">
+                    </div>
+                    <div class="input-group" id="m2" style="display: none">
+                        <span class="input-group-addon input-sm">#</span>
+                        <input min="1" class="test form-control input-sm" type="number" id="mpg2"
+                               placeholder="Enter MPG #2" name="mpg2"
+                               value="">
+                    </div>
+                    <div class="input-group" id="m3" style="display: none">
+                        <span class="input-group-addon input-sm">#</span>
+                        <input min="1" class="test form-control input-sm" type="number" id="mpg3"
+                               placeholder="Enter MPG #3" name="mpg3"
+                               value="">
+                    </div>
+                    <div class="input-group" id="m4" style="display: none">
+                        <span class="input-group-addon input-sm">#</span>
+                        <input min="1" class="test form-control input-sm" type="number" id="mpg4"
+                               placeholder="Enter MPG #4" name="mpg4"
+                               value="">
+                    </div>
+                    <div class="input-group" id="m5" style="display: none">
+                        <span class="input-group-addon input-sm">#</span>
+                        <input min="1" class="test form-control input-sm" type="number" id="mpg5"
+                               placeholder="Enter MPG #5" name="mpg5"
+                               value="">
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="text-center" id="valid-div-btn" style="display: none">
+                    <button type="submit" class="btn btn-primary mybtn" name="showOutput"
+                            onclick="validateInput()">Verify Inputs
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<!--show validated inputs and table button-->
+<div class="container-fluid">
+    <div class="row is-flex">
+        <div class="col-sm-6 content">
+            <ul class="list-group well" id="valid1" style="display: none">
+                <h4>Costs per Gallon:</h4>
+                <li id="x1" class="list-group-item"></li>
+                <li id="x2" class="list-group-item"></li>
+                <li id="x3" class="list-group-item"></li>
+                <li id="x4" class="list-group-item"></li>
+                <li id="x5" class="list-group-item"></li>
+            </ul>
+        </div>
+        <div class="col-sm-6">
+
+            <ul class="list-group well" id="valid2" style="display: none">
+                <h4>Miles Per Gallon:</h4>
+                <li id="y1" class="list-group-item"></li>
+                <li id="y2" class="list-group-item"></li>
+                <li id="y3" class="list-group-item"></li>
+                <li id="y4" class="list-group-item"></li>
+                <li id="y5" class="list-group-item"></li>
+            </ul>
+
+        </div>
+    </div>
+</div>
+
+
+<!--generated table-->
+<div class="container-fluid">
+    <div class="row is-flex">
+        <div class="col-sm-12">
+            <table id="resultTable" class="table table-bordered" style="display: none">
+                <thead>
+                <tr id="table_row_header">
+                    <th>Price/Fuel Consumption</th>
+                </tr>
+                </thead>
+                <tbody id="t_body">
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!--reset form-->
+<div class="container-fluid">
+    <div class="row is-flex">
+        <div class="col-sm-4 col-sm-offset-4">
+            <div class="btn-group-vertical">
+
+                <button id="back_btn" style="display: none" type="button" class="btn btn-primary mybtn"
+                        onclick="goBack()">Go Back
+                </button>
+
+
+                <!--create table button-->
+                <button id="table-div-btn" style="display: none" type="button" class="btn btn-primary mybtn"
+                        onclick="makeTable()">Generate Table
+                </button>
+
+
+                <!--reset form-->
+
+                <button id="reset_btn" style="display: none" type="button" class="btn btn-primary mybtn"
+                        onclick="startOver()">Click here to make a new table.
+                </button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

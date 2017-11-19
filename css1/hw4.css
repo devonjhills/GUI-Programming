@@ -2,7 +2,7 @@
 Name: Devon Hills, devon_hills@student.uml.edu
 Affiliation: Computer Science Student, UMass Lowell
 Course: Comp.4610, GUI Programming I
-Updated: 11/10/2017
+Updated: 11/18/2017
 Description: Styling for homework 4 page
 */
 
@@ -37,12 +37,22 @@ body {
     width: auto;
 }
 
+/*style warning label*/
+.label.label-danger {
+    color: white;
+}
+
 /*content borders*/
 .content {
     border-right: 1px solid #3B4044;
 }
 
 /*spacing*/
+.input-group {
+    margin-bottom: 2px;
+    margin-top: 5px;
+}
+
 .row h4 {
     margin-top: 0;
 }
@@ -77,9 +87,9 @@ hr {
     background-color: black;
 }
 
+/*fix button margins and whitespace*/
 .mybtn {
-    width: 25%;
-    margin-top: 5px;
+    margin-top: 10px;
     margin-bottom: 15px;
     white-space: normal;
 }
