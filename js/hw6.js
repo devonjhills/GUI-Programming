@@ -238,25 +238,39 @@ $(function () {
 });
 
 /**
- * dynamically create table
+ * dynamically create table in a new tab
  */
-function insertContent(content) {
-    var activeTab = $("#tabs").tabs('option', 'active');
-    activeTab += 1;
-    $("#tab-" + activeTab).append(content);
-}
-
 function makeTable() {
 
     var num_tabs = $('#tabs ul li.tab').length + 1;
-    $('#tabs .tablist').append('<li class="tab"><a href="#tab-' + num_tabs + '">Table ' + num_tabs + '</a></li>');
+    $('#tabs .tablist').append(
+        '<li class="tab"><a href="#tab-' + num_tabs + '">Table ' + (num_tabs - 1) + '</a>' +
+        '<span class=\'ui-icon ui-icon-circle-close close-tab\'></span></li>'
+    );
 
-    $("#tabs").append('<div id="tab-' + num_tabs + '"></div>');
+    //close single tab
+    $(".close-tab").on( "click", function() {
+        var tabDiv=$(this).closest(".ui-tabs").attr("id");
+        var tabLabel = $( this ).closest( "li" ).remove().attr( "aria-controls" );
+        $( "#" + tabLabel ).remove();
+        $("#"+tabDiv).tabs("refresh");
+    });
+
+
+    $("#tabs").append('<div id="tab-' + num_tabs + '">' +
+        '<table id="resultTable' + num_tabs + '" class="table table-bordered">' +
+        '<thead>' +
+        '<tr id="table_row_header' + num_tabs + '">' +
+        '<th>Price/Fuel Consumption</th>' +
+        '</tr>' +
+        '</thead>' +
+        '<tbody id="t_body' + num_tabs + '">' +
+        '</tbody>' +
+        '</table>' +
+        '</div>');
+
     $('#tabs').tabs("refresh");
-    $('#tabs').tabs("option", "active", -1); //makes the new tab active WORKS
-
-    insertContent("test content" + num_tabs);
-
+    $('#tabs').tabs("option", "active", -1);
 
     var val = parseFloat(document.getElementById("numfields").value);
 
@@ -265,7 +279,11 @@ function makeTable() {
     for (var i = 1; i <= val; i++) {
         var th = document.createElement("TH");
 
-        var table = document.getElementById("resultTable");
+        //create dynamic id's
+        var table_id = "resultTable" + num_tabs.toString();
+        var table_header_id = "table_row_header" + num_tabs.toString();
+
+        var table = document.getElementById(table_id);
 
         var check = "#price" + i.toString();
         var check2 = "#mpg" + i.toString();
@@ -276,7 +294,7 @@ function makeTable() {
         var t = document.createTextNode(header_text);
 
         th.appendChild(t);
-        document.getElementById("table_row_header").appendChild(th);
+        document.getElementById(table_header_id).appendChild(th);
 
         /*add rows of data*/
         var row = table.insertRow(i);
@@ -310,7 +328,7 @@ function makeTable() {
     $("#valid-div-btn").hide();
     $("#table-div-btn").hide();
 
-    $("#resultTable").show();
+    //$("#resultTable").show();
     $("#back_btn").show();
     $("#reset_btn").show();
 
@@ -332,9 +350,9 @@ function calcCost(x, y) {
  */
 function goBack() {
     $("#start_form").show();
-    $("#price_form").show();
-    $("#mpg_form").show();
-    $("#valid-div-btn").show();
+    //$("#price_form").show();
+    //$("#mpg_form").show();
+    //$("#valid-div-btn").show();
 
     $("#valid1").hide();
     $("#valid2").hide();
@@ -343,10 +361,20 @@ function goBack() {
     $("#back_btn").hide();
     $("#reset_btn").hide();
 
+    //reset forms
+    $("#start_form").get(0).reset();
+    $("#inputs_form").get(0).reset();
+
+    //reset sliders
+    $('.psliders').slider({
+       value: 1
+    });
+
+
     //clear table for new values
-    $('th:contains("$")').remove();
-    $('tr:contains("$")').remove();
-    $('tr:contains("MPG")').remove();
+    //$('th:contains("$")').remove();
+    //$('tr:contains("$")').remove();
+    //$('tr:contains("MPG")').remove();
 }
 
 /**

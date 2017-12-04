@@ -103,6 +103,11 @@ hr {
     margin-bottom: 2px;
 }
 
+/*jquery ui element styling*/
+.ui-icon-circle-close {
+    cursor:pointer;
+}
+
 /* Flexbox styling */
 .row.is-flex {
     display: flex;
