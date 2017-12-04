@@ -50,7 +50,7 @@ body {
 /*spacing*/
 .input-group {
     margin-bottom: 2px;
-    margin-top: 5px;
+    margin-top: 10px;
 }
 
 .row h4 {
@@ -96,6 +96,11 @@ hr {
 
 .list-group-item {
     padding: 3px 10px;
+}
+
+/*slider styling*/
+.psliders {
+    margin-bottom: 2px;
 }
 
 /* Flexbox styling */
