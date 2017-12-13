@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+ Name: Devon Hills, devon_hills@student.uml.edu
+ Affiliation: Computer Science Student, UMass Lowell
+ Course: Comp.4610, GUI Programming I
+ Updated: 12/11/2017
+ Description: This is the html for the final GUI Programming project - a web app for viewing images
+-->
+
+<!--page metadata-->
+<head>
+    <meta charset="UTF-8">
+    <title>Final Project</title>
+    <link rel="icon" href="https://raw.githubusercontent.com/devonjhills/GUI-Programming/master/images/favicon.png">
+
+    <!--bootstrap requirements - CDN version-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+
+    <!--theme-->
+    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cyborg/bootstrap.min.css" rel="stylesheet">
+
+    <!-- fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- angular -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <!-- ui bootstrap -->
+    <script src="../../js/ui-bootstrap-tpls-1.3.1.min.js"></script>
+
+    <!-- angular lightbox -->
+    <script src="../../js/angular-bootstrap-lightbox.min.js"></script>
+
+    <!-- TESTING -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/camanjs/4.1.2/caman.full.min.js"></script>
+
+    <!-- my styling and js -->
+    <link rel="stylesheet" href="../../css1/final.css" type="text/css">
+    <script src="../../js/final.js"></script>
+
+</head>
+
+<body ng-app="myApp">
+
+<!-- Navbar -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <div class="navbar-brand">
+                <img src="https://raw.githubusercontent.com/devonjhills/GUI-Programming/master/images/favicon.png"
+                     alt="Nav">
+            </div>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li><a href="../../index.html">Home</a></li>
+                <li class="active"><a href="../../461f2017/final/final.html">Final Project</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href=mailto:devon_hills@student.uml.edu>Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Content -->
+<div class="container-fluid">
+    <div class="row is-flex">
+        <div class="col-sm-3 content">
+            <div class="well" style="text-align: center">
+                <h4>Photography Portfolio</h4>
+                <p>A sample portfolio website for showcasing photography.</p>
+                <!--
+                <p>Images can be uploaded and deleted, and opened within a simple editor.</p>
+                <p>Images may be sorted by date and other EXIF criteria.</p>
+                -->
+            </div>
+        </div>
+
+        <div class="col-sm-9" align="center">
+            <!-- images from https://imgur.com/gallery/hOF1g -->
+            <div id="myCarousel" class="startrow mycar carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                </ol>
+
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <img src="https://i.imgur.com/tXtwrPd.jpg"
+                             alt="image1">
+                    </div>
+
+                    <div class="item">
+                        <img src="https://i.imgur.com/QguApMA.jpg"
+                             alt="image2">
+                    </div>
+
+                    <div class="item">
+                        <img src="https://i.imgur.com/fNXT1wc.jpg"
+                             alt="image3">
+                    </div>
+                </div>
+
+                <!-- Left and right controls -->
+                <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr>
+
+<!-- Gallery -->
+<div class="container-fluid">
+
+    <div class="row is-flex">
+        <div class="col-sm-12 well mywell">
+
+            <div style="text-align: center">
+
+                <!-- images from https://imgur.com/gallery/hOF1g -->
+                <h4>Full Gallery <br>
+                    <small>Click thumbnails below for full screen viewing and navigation</small>
+                </h4>
+
+                <div ng-cloak ng-controller="GalleryCtrl">
+                    <ul class="gallery gallery1">
+                        <li ng-repeat="image in images">
+                            <a ng-click="openLightboxModal($index)">
+                                <img ng-src="{{image}}" class="img-thumbnail">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr>
+
+<!-- Image editing -->
+<div class="well mywell">
+    <div class="container-fluid">
+        <div class="row is-flex">
+            <div class="col-sm-12" style="text-align: center">
+
+                <h4>Image Editing!</h4>
+
+
+                <form id="urlBox" class="center">
+                    <input class="url-box" type="url" id="imgUrl"
+                           placeholder="Paste url or drag image from above here">
+                    <input id="go" type="button" value="Submit" class="btn btn-default">
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="container-fluid">
+        <div class="row is-flex">
+
+
+
+            <div class="col-sm-3">
+                <div class="sliders_container">
+                    <form id="imageEditor">
+                        <p>
+                            <label for="gs">Grayscale</label>
+                            <input id="gs" name="gs" type="range" min="0" max="100" value="0">
+                        </p>
+
+                        <p>
+                            <label for="blur">Blur</label>
+                            <input id="blur" name="blur" type="range" min="0" max="10" value="0">
+                        </p>
+
+                        <p>
+                            <label for="br">Exposure</label>
+                            <input id="br" name="br" type="range" min="0" max="200" value="100">
+                        </p>
+
+                        <p>
+                            <label for="ct">Contrast</label>
+                            <input id="ct" name="ct" type="range" min="0" max="200" value="100">
+                        </p>
+
+                        <p hidden>
+                            <label for="huer">Hue Rotate</label>
+                            <input id="huer" name="huer" type="range" min="0" max="360" value="0">
+                        </p>
+
+                        <p>
+                            <label for="opacity">Opacity</label>
+                            <input id="opacity" name="opacity" type="range" min="0" max="100" value="100">
+                        </p>
+
+                        <p>
+                            <label for="invert">Invert</label>
+                            <input id="invert" name="invert" type="range" min="0" max="100" value="0">
+                        </p>
+
+                        <p>
+                            <label for="saturate">Saturate</label>
+                            <input id="saturate" name="saturate" type="range" min="0" max="500" value="100">
+                        </p>
+
+                        <p>
+                            <label for="sepia">Sepia</label>
+                            <input id="sepia" name="sepia" type="range" min="0" max="100" value="0">
+                        </p>
+
+                        <input class="btn btn-default" type="reset" form="imageEditor" id="reset"
+                               value="Reset"/>
+
+                    </form>
+                </div>
+            </div>
+
+
+            <div class="col-sm-9" id="imageContainer">
+                <img id="myImage" class="img-responsive" src="https://i.imgur.com/Gb6xVGP.jpg">
+            </div>
+
+
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<!--
+<h1>Image Editor Demo Built with CamanJS</h1>
+<div class="col-sm-12">
+    <canvas id="canvas">
+
+    </canvas>
+</div>
+<div class="col-sm-12">
+    <div class="col-sm-6">
+        <label for="hue">Hue</label>
+        <input id="hue" name="hue" type="range" min="0" max="300" value="0">
+        <label for="contrast">Contrast</label>
+        <input id="contrast" name="contrast" type="range" min="-20" max="20" value="0">
+    </div>
+    <div class="col-sm-6">
+        <label for="vibrance">Vibrance</label>
+        <input id="vibrance" name="vibrance" type="range" min="0" max="400" value="0">
+        <label for="sepia1">Sepia</label>
+        <input id="sepia1" name="sepia" type="range" min="0" max="100" value="0">
+    </div>
+    <nav class="filters">
+        <button id="resetbtn" class="btn btn-success">Reset Photo</button>
+        <button id="brightnessbtn" class="btn btn-primary">Brightness</button>
+        <button id="noisebtn" class="btn btn-primary">Noise</button>
+        <button id="sepiabtn" class="btn btn-primary">Sepia</button>
+        <button id="contrastbtn" class="btn btn-primary">Contrast</button>
+        <button id="colorbtn" class="btn btn-primary">Colorize</button>
+    </nav>
+
+    <nav class="filters">
+        <button id="vintagebtn" class="btn btn-primary">Vintage</button>
+        <button id="lomobtn" class="btn btn-primary">Lomo</button>
+        <button id="embossbtn" class="btn btn-primary">Emboss</button>
+        <button id="tiltshiftbtn" class="btn btn-primary">Tilt Shift</button>
+        <button id="radialblurbtn" class="btn btn-primary">Radial Blur</button>
+        <button id="edgeenhancebtn" class="btn btn-primary">Edge Enhance</button>
+    </nav>
+
+    <nav class="filters">
+        <button id="posterizebtn" class="btn btn-primary">Posterize</button>
+        <button id="claritybtn" class="btn btn-primary">Clarity</button>
+        <button id="orangepeelbtn" class="btn btn-primary">Orange Peel</button>
+        <button id="sincitybtn" class="btn btn-primary">Sin City</button>
+        <button id="sunrisebtn" class="btn btn-primary">Sun Rise</button>
+        <button id="crossprocessbtn" class="btn btn-primary">Cross Process</button>
+    </nav>
+
+    <nav class="filters">
+        <button id="hazydaysbtn" class="btn btn-primary">Hazy</button>
+        <button id="lovebtn" class="btn btn-primary">Love</button>
+        <button id="grungybtn" class="btn btn-primary">Grungy</button>
+        <button id="jarquesbtn" class="btn btn-primary">Jarques</button>
+        <button id="pinholebtn" class="btn btn-primary">Pin Hole</button>
+        <button id="oldbootbtn" class="btn btn-primary">Old Boot</button>
+        <button id="glowingsunbtn" class="btn btn-primary">Glow Sun</button>
+    </nav>
+
+    <nav class="filters">
+        <button id="hdrbtn" class="btn btn-warning">HDR Effect</button>
+        <button id="oldpaperbtn" class="btn btn-warning">Old Paper</button>
+        <button id="pleasantbtn" class="btn btn-warning">Pleasant</button>
+        <button id="savebtn" class="btn btn-success">Save Image</button>
+    </nav>
+
+</div>
+-->
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container-fluid text-muted text-right">
+        All images sampled from <a href="https://imgur.com/gallery/hOF1g">this online gallery</a>
+    </div>
+</footer>
+
+
+
+</body>
+
+</html>
