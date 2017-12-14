@@ -24,21 +24,67 @@ angular.module('myApp').controller('GalleryCtrl', function ($scope, Lightbox) {
     $scope.Lightbox = Lightbox;
 
     $scope.images = [
-        'https://i.imgur.com/gjEZAJ7h.jpg',
-        'https://i.imgur.com/PnSeZX3h.jpg',
-        'https://i.imgur.com/X92aA5Yh.jpg',
-        'https://i.imgur.com/Gb6xVGPh.jpg',
-        'https://i.imgur.com/I3KJdGyh.jpg',
-        'https://i.imgur.com/zlc7uSRh.jpg',
-        'https://i.imgur.com/PVU0dxch.jpg',
-        'https://i.imgur.com/p53E302h.jpg',
-        'https://i.imgur.com/OdjFda3h.jpg',
-        'https://i.imgur.com/c3hJOBEh.jpg',
-        'https://i.imgur.com/QO2wXxah.jpg',
-        'https://i.imgur.com/QLJfdkHh.jpg',
-        'https://i.imgur.com/TG87poQh.jpg',
-        'https://i.imgur.com/0ic5msXh.jpg',
-        'https://i.imgur.com/EGgyVOqh.jpg',
+        {
+            'url': 'https://i.imgur.com/gjEZAJ7h.jpg',
+            'title': 'img1'
+        },
+        {
+            'url': 'https://i.imgur.com/PnSeZX3h.jpg',
+            'title': 'img2'
+        },
+        {
+            'url': 'https://i.imgur.com/X92aA5Yh.jpg',
+            'title': 'img3'
+        },
+        {
+            'url': 'https://i.imgur.com/Gb6xVGPh.jpg',
+            'title': 'img4'
+        },
+        {
+            'url': 'https://i.imgur.com/I3KJdGyh.jpg',
+            'title': 'img5'
+        },
+        {
+            'url': 'https://i.imgur.com/zlc7uSRh.jpg',
+            'title': 'img6'
+        },
+        {
+            'url': 'https://i.imgur.com/PVU0dxch.jpg',
+            'title': 'img7'
+        },
+        {
+            'url': 'https://i.imgur.com/p53E302h.jpg',
+            'title': 'img8'
+        },
+        {
+            'url': 'https://i.imgur.com/OdjFda3h.jpg',
+            'title': 'img9'
+        },
+        {
+            'url': 'https://i.imgur.com/c3hJOBEh.jpg',
+            'title': 'img10'
+        },
+        {
+            'url': 'https://i.imgur.com/QO2wXxah.jpg',
+            'title': 'img11'
+        },
+        {
+            'url': 'https://i.imgur.com/QLJfdkHh.jpg',
+            'title': 'img12'
+        },
+        {
+            'url': 'https://i.imgur.com/TG87poQh.jpg',
+            'title': 'img13'
+        },
+        {
+            'url': 'https://i.imgur.com/0ic5msXh.jpg',
+            'title': 'img14'
+        },
+        {
+            'url': 'https://i.imgur.com/EGgyVOqh.jpg',
+            'title': 'img15'
+        },
+
     ];
 
 

@@ -53,9 +53,6 @@
     <link rel="stylesheet" href="../../css1/final.css" type="text/css">
     <script src="../../js/final.js"></script>
 
-    <!-- twitter widget -->
-    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
 </head>
 
 <body ng-app="myApp">
@@ -163,31 +160,57 @@
 <div class="container-fluid">
 
     <div class="row is-flex">
-        <div class="col-sm-12 well mywell">
+        <div style="text-align: center" class="col-sm-12 well mywell">
 
-            <div style="text-align: center">
+            <!-- images from https://imgur.com/gallery/hOF1g -->
+            <h3>Full Gallery
+                <small>Click thumbnails below for full screen viewing and navigation</small>
+            </h3>
 
-                <!-- images from https://imgur.com/gallery/hOF1g -->
-                <h3>Full Gallery
-                    <small>Click thumbnails below for full screen viewing and navigation</small>
-                </h3>
+            <div ng-cloak ng-controller="GalleryCtrl">
 
-                <div ng-cloak ng-controller="GalleryCtrl">
-                    <ul class="gallery gallery1">
-                        <li ng-repeat="image in images">
-                            <a ng-click="openLightboxModal($index)">
-                                <img ng-src="{{image}}" class="img-thumbnail">
-                            </a>
-                        </li>
-                    </ul>
+                <div class="sortingOptions">
+                    <label> Sorting options:
+                        <select ng-model="galleryOrder">
+                            <option value="title">Title</option>
+                            <option value="url">File Name</option>
+                        </select>
+                    </label>
+
+                    <label class=".radio-inline">
+                        <input type="radio" ng-model="direction" name="direction" checked>
+                        ascending
+                    </label>
+
+                    <label class=".radio-inline">
+                        <input type="radio" ng-model="direction" name="direction" value="reverse">
+                        descending
+                    </label>
+
                 </div>
+
+
+                <hr>
+
+                <ul class="gallery gallery1">
+
+                    <li ng-repeat="image in images | orderBy: galleryOrder:direction">
+
+                        <a ng-click="openLightboxModal($index)">
+                            <img ng-src="{{image.url}}" class="img-thumbnail">
+                        </a>
+
+                    </li>
+
+                </ul>
+
             </div>
+
         </div>
     </div>
 </div>
 
 <hr>
-
 
 
 <!--
@@ -310,7 +333,7 @@
 <!-- Footer -->
 <footer class="footer">
     <div class="container-fluid text-muted text-right">
-        All images sampled from <a href="https://imgur.com/gallery/hOF1g">this online gallery</a>
+        All images sampled from <a target="_blank" href="https://imgur.com/gallery/hOF1g">this online gallery</a>
     </div>
 </footer>
 

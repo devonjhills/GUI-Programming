@@ -189,8 +189,8 @@ body {
 }
 
 .gallery1 img {
-    width: 90px;
-    height: 90px;
+    width: 150px;
+    height: 150px;
 }
 
 /*****************************************************
@@ -223,6 +223,10 @@ hr {
     margin-top: 10px;
     margin-bottom: 20px;
     width: 100%;
+}
+
+.sortingOptions select {
+    color: #434b56;
 }
 
 
