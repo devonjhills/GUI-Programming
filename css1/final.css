@@ -2,11 +2,14 @@
 Name: Devon Hills, devon_hills@student.uml.edu
 Affiliation: Computer Science Student, UMass Lowell
 Course: Comp.4610, GUI Programming I
-Updated: 11/5/2017
-Description: Styling for index pages using Bootstrap
+Updated: 12/11/2017
+Description: Styling for final project elements
 */
 
-/* needed html and body spacing */
+/*****************************************************
+ * html and body spacing                             *
+ *****************************************************/
+
 html {
     position: relative;
     min-height: 100%;
@@ -18,7 +21,10 @@ body {
     padding-bottom: 60px;
 }
 
-/* navbar styling */
+/*****************************************************
+ * navbar styling                                    *
+ *****************************************************/
+
 .navbar {
     margin-bottom: 0;
     border-radius: 0;
@@ -40,23 +46,10 @@ body {
     border-right: 1px solid #3B4044;
 }
 
-.row h4 {
-    margin-top: 0;
-}
+/*****************************************************
+ * footer styling                                    *
+ *****************************************************/
 
-h3 {
-    margin-top: 0;
-}
-
-hr {
-    height: 1px;
-    background-color: #3B4044;
-    margin-top: 10px;
-    margin-bottom: 20px;
-    width: 100%;
-}
-
-/* footer styling */
 .footer {
     position: absolute;
     bottom: 0;
@@ -64,14 +57,13 @@ hr {
     /* Set the fixed height of the footer here */
     height: 40px;
     line-height: 40px; /* Vertically center the text there */
-    background-color: #222222;
+    background-color: #3d4248;
 }
 
-.footer a:hover {
-    color: black;
-}
+/*****************************************************
+ * flex box styling                                  *
+ *****************************************************/
 
-/* Flexbox styling */
 .row.is-flex {
     display: flex;
     flex-wrap: wrap;
@@ -104,9 +96,10 @@ hr {
     flex-direction: column;
 }
 
-/* end flex styling */
+/*****************************************************
+ * custom image styling                              *
+ *****************************************************/
 
-/* final styling*/
 .carousel img {
     max-height: 400px;
     max-width: 600px;
@@ -126,7 +119,6 @@ hr {
 .img-thumbnail {
     margin-bottom: 10px;
 }
-
 
 .lightbox-nav {
     position: relative;
@@ -170,12 +162,19 @@ hr {
     box-shadow: .4em 0 0 rgba(255, 255, 255, .75), -.4em 0 0 rgba(255, 255, 255, .75)
 }
 
-a {
-    cursor: pointer;
+#photoFilterCanvasContainer {
+    border: 2px solid;
+    border-radius: 10px;
+    padding: 5px;
+    max-height: 480px;
+    max-width: 800px;
+    object-fit: contain;
 }
 
-nav {
-    margin-bottom: 2em;
+#photoFilterCanvasContainer img {
+    max-height: 480px;
+    max-width: 800px;
+    object-fit: contain;
 }
 
 .gallery {
@@ -189,10 +188,20 @@ nav {
     text-align: center;
 }
 
-/* standard thumbnail size */
 .gallery1 img {
     width: 90px;
     height: 90px;
+}
+
+/*****************************************************
+ * misc spacing and elements                         *
+ *****************************************************/
+a {
+    cursor: pointer;
+}
+
+nav {
+    margin-bottom: 2em;
 }
 
 .mywell {
@@ -200,9 +209,64 @@ nav {
     margin-right: 10px;
 }
 
+.row h4 {
+    margin-top: 0;
+}
+
+h3 {
+    margin-top: 0;
+}
+
+hr {
+    height: 1px;
+    background-color: #3B4044;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+/*****************************************************
+ * buttons/forms                                     *
+ *****************************************************/
+
+form {
+    text-align: center;
+}
+
+.url-box {
+    background-color: #272b30;
+    color: green;
+    width: 50%;
+    height: 60px;
+    border: 4px dashed #c8c8c8;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#go {
+    height: 62px;
+    text-align: center;
+}
+
+#savebtn {
+    margin-top: 5px;
+}
+
+#reset {
+    height: 40px;
+    text-align: center;
+    margin: 0 0 10px 0;
+}
+
+.btn {
+    white-space: normal !important;
+}
 
 
-/* On small screens, set height to 'auto' for sidenav and grid */
+/*****************************************************
+ * small screen style rules                          *
+ *****************************************************/
 @media screen and (max-width: 767px) {
     .content {
         height: auto;
@@ -231,94 +295,9 @@ nav {
         width: 75px;
         height: 75px;
     }
-}
 
-
-/*TEST*/
-form {
-    text-align: center;
-}
-
-/* Styles for  URL box */
-.url-box {
-    background-color: rgba(0, 0, 0, 0.27);
-    display: inline-block;
-    height: 50px;
-    border: 4px dashed;
-    width: 50%;
-    text-align: center;
-    margin-bottom: 10px;
-}
-
-#go {
-    height: 50px;
-    text-align: center;
-    margin-left: 10px;
-}
-
-#reset {
-    height: 40px;
-    text-align: center;
-    margin: 0 0 10px 0;
-}
-
-/* Styles for image container*/
-
-#imageContainer {
-    border: 2px solid;
-    border-radius: 10px;
-    padding: 5px;
-    max-height: 480px;
-    max-width: 800px;
-    object-fit: contain;
-}
-
-#imageContainer img {
-    max-height: 480px;
-    max-width: 800px;
-    object-fit: contain;
-}
-
-/* Styles for sliders*/
-.sliders_container {
-    border: 2px solid;
-    border-radius: 10px;
-    padding: 5px;
-}
-
-.sliders_container p label {
-    text-align: center;
-    margin-top: 10px;
-}
-
-input[type=range] {
-    /*removes default webkit styles*/
-    -webkit-appearance: none;
-    /*fix for FF unable to apply focus style bug */
-    border-radius: 5px;
-    /*required for proper track sizing in FF*/
-}
-
-input[type=range]::-webkit-slider-runnable-track {
-    height: 7px;
-    background: #ABB7B7;
-    border-radius: 3px;
-}
-
-input[type=range]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    height: 20px;
-    width: 20px;
-    border-radius: 50%;
-    background: rgb(0, 0, 0);
-    margin-top: -6px;
-    vertical-align: middle;
-}
-
-input[type=range]:focus {
-    outline: none;
-}
-
-input[type=range]:hover {
-    cursor: pointer;
+    /*image spacing on mobile*/
+    #photoFilterCanvasContainer {
+        margin-top: 10px;
+    }
 }
