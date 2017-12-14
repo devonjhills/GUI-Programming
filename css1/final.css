@@ -272,27 +272,17 @@ form {
 .url-box {
     background-color: #272b30;
     color: green;
-    width: 50%;
-    height: 60px;
     border: 4px dashed #c8c8c8;
     border-radius: 10px;
     text-align: center;
-    margin-bottom: 10px;
 }
 
 #go {
-    height: 62px;
     text-align: center;
 }
 
 #savebtn {
     margin-top: 5px;
-}
-
-#reset {
-    height: 40px;
-    text-align: center;
-    margin: 0 0 10px 0;
 }
 
 .btn {
@@ -335,5 +325,9 @@ form {
     /*image spacing on mobile*/
     #photoFilterCanvasContainer {
         margin-top: 10px;
+    }
+
+    #urlBox {
+        margin-bottom: 10px;
     }
 }
