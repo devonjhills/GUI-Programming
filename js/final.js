@@ -93,13 +93,10 @@ $(document).ready(function () {
 
         //dynamic twitter widget creation
         var test = img.src;
-        var title = "Check out this image!";
+
         console.log("test url: " + test);
 
-        // help from https://stackoverflow.com/a/18622535/8657128
-        $("#sharebutton").html('&nbsp;');
-        $("#sharebutton").html('<a href="https://twitter.com/share" class="twitter-share-button" data-url="' + test + '" data-size="large" data-text="' + title + '" data-count="none">Tweet</a>');
-        twttr.widgets.load();
+
 
 
         //clear out form input
