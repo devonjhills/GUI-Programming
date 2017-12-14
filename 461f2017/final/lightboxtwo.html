@@ -1,3 +1,6 @@
+<script src="../../js/final.js"></script>
+<link rel="stylesheet" href="../../css1/final.css" type="text/css">
+
 <!-- Modal content-->
 <div class="modal-content">
 
@@ -8,21 +11,16 @@
         <div class="lightbox-nav">
             <!-- close button -->
             <button class="close" aria-hidden="true" ng-click="$dismiss()">
-                <i class="fa fa-close" style="font-size:36px"></i>
+                <i style="font-size:36px;" class="fa fa-times" aria-hidden="true"></i>
             </button>
 
             <div class="btn-group" ng-if="Lightbox.images.length > 1">
-                <a class="btn btn-sm btn-default" ng-click="Lightbox.prevImage()">
-                    ‹ Previous
+                <a class="btn btn-default" ng-click="Lightbox.prevImage()">
+                    <i style="font-size:24px;" class="fa fa-long-arrow-left" aria-hidden="true"></i>
                 </a>
 
-                <a ng-href="{{Lightbox.imageUrl}}" target="_blank"
-                   class="btn btn-sm btn-default" title="Open in new tab">
-                    Download view
-                </a>
-
-                <a class="btn btn-sm btn-default" ng-click="Lightbox.nextImage()">
-                    Next ›
+                <a class="btn btn-default" ng-click="Lightbox.nextImage()">
+                     <i style="font-size:24px;" class="fa fa-long-arrow-right" aria-hidden="true"></i>
                 </a>
             </div>
         </div>
@@ -41,7 +39,46 @@
         </div>
     </div>
 
-    <div id="modalfooter2" class="modal-footer"></div>
+    <!-- share buttons from https://simplesharebuttons.com/html-share-buttons/ -->
+    <div id="modalfooter2" class="modal-footer">
+
+        <div class="btn-toolbar pull-right">
+            <div class="btn-group">
+                <a ng-href="{{Lightbox.imageUrl}}" target="_blank"
+                   class="btn  btn-default" title="Open in new tab to download or copy URL">
+                    <i class="fa fa-download" aria-hidden="true"></i> Download
+                </a>
+
+            </div>
+
+
+            <div class="btn-group" id="share-buttons">
+
+                <!-- Twitter -->
+                <a href="https://twitter.com/share?url={{Lightbox.imageUrl}}&amp;text=Check out this image!&amp;                                hashtags=GUIGuru"
+                   target="_blank" class="btn  btn-default">
+                    <i class="fa fa-twitter" aria-hidden="true"></i> Twitter
+                </a>
+
+                <!-- Email -->
+                <a href="mailto:?Subject=Check out this image!&amp;Body=I%20saw%20this%20and%20thought%20of%20you!%20                           {{Lightbox.imageUrl}}"
+                   class="btn btn-default" target="_blank">
+                    <i class="fa fa-envelope" aria-hidden="true"></i> Email
+                </a>
+
+                <!-- Google+ -->
+                <a href="https://plus.google.com/share?url={{Lightbox.imageUrl}}" target="_blank"
+                   class="btn  btn-default">
+                    <i class="fa fa-google-plus" aria-hidden="true"></i> Google
+                </a>
+
+
+            </div>
+
+        </div>
+
+    </div>
 
 </div>
+
 

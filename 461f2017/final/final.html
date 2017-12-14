@@ -46,13 +46,14 @@
     <!-- angular lightbox -->
     <script src="../../js/angular-bootstrap-lightbox.min.js"></script>
 
-    <!-- TESTING -->
+    <!-- caman image editing -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/camanjs/4.1.2/caman.full.min.js"></script>
 
     <!-- my styling and js -->
     <link rel="stylesheet" href="../../css1/final.css" type="text/css">
     <script src="../../js/final.js"></script>
 
+    <!-- twitter widget -->
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 </head>
@@ -98,22 +99,19 @@
 -->
 <div class="container-fluid">
     <div class="row is-flex">
-        <div class="col-sm-3 content">
-            <div class="well" style="text-align: center">
-                <h4>Photography Portfolio</h4>
+        <div class="col-sm-4 content">
+            <div class="well">
+                <h4 style="text-align: center">Photography Portfolio</h4>
 
                 <hr>
 
                 <p>A sample portfolio website for showcasing photography.</p>
+                <p>Clicking on gallery thumbnails opens a full screen view with button and keyboard navigation, as well as options for downloading and social media sharing</p>
                 <p>Gallery images may be dragged into the editing window below and downloaded locally.</p>
-                <!--
-                <p>Images can be uploaded and deleted, and opened within a simple editor.</p>
-                <p>Images may be sorted by date and other EXIF criteria.</p>
-                -->
             </div>
         </div>
 
-        <div class="col-sm-9" align="center">
+        <div class="col-sm-8" align="center">
             <!-- images from https://imgur.com/gallery/hOF1g -->
             <div id="myCarousel" class="startrow mycar carousel slide" data-ride="carousel">
                 <!-- Indicators -->
@@ -207,7 +205,7 @@
                 <form id="urlBox">
                     <div class="input-group">
                         <input class="url-box form-control" type="url" id="imgUrl"
-                               placeholder="Paste url or drag an image from above gallery into this box">
+                               placeholder="Drag an image from above gallery into this box">
                         <span class="input-group-btn">
                     <input id="go" type="button" value="Submit" class="btn btn-default" data-toggle="modal"
                            data-target="#myModal">
@@ -250,14 +248,18 @@
 
                         <div class="col-sm-3">
                             <label for="hue">Hue</label>
-                            <input id="hue" name="hue" type="range" min="0" max="300" value="0">
+                            <input class="slider" id="hue" name="hue" type="range" min="0" max="300" value="0">
+
                             <label for="contrast">Contrast</label>
-                            <input id="contrast" name="contrast" type="range" min="-20" max="20" value="0">
+                            <input class="slider" id="contrast" name="contrast" type="range" min="-20" max="20"
+                                   value="0">
 
                             <label for="vibrance">Vibrance</label>
-                            <input id="vibrance" name="vibrance" type="range" min="0" max="400" value="0">
+                            <input class="slider" id="vibrance" name="vibrance" type="range" min="0" max="400"
+                                   value="0">
+
                             <label for="sepia1">Sepia</label>
-                            <input id="sepia1" name="sepia" type="range" min="0" max="100" value="0">
+                            <input class="slider" id="sepia1" name="sepia" type="range" min="0" max="100" value="0">
 
                             <hr>
 
@@ -327,6 +329,7 @@
                 </div>
             </div>
 
+            <!-- twitter button div -->
             <div id="sharebutton" class="modal-footer">
             </div>
 

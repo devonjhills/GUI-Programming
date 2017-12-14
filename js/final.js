@@ -1,3 +1,12 @@
+/**
+ * Name: Devon Hills, devon_hills@student.uml.edu
+ * Affiliation: Computer Science Student, UMass Lowell
+ * Course: Comp.4610, GUI Programming I
+ * Updated: 12/11/2017
+ * Description: Javascript for Final Project - web app for image portfolio
+ */
+
+
 /**********************************************************
  * lightbox image gallery logic, based on:                *
  * https://github.com/compact/angular-bootstrap-lightbox  *
