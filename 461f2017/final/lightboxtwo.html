@@ -42,26 +42,27 @@
     <!-- share buttons from https://simplesharebuttons.com/html-share-buttons/ -->
     <div id="modalfooter2" class="modal-footer">
 
-        <div class="container-fluid">
-            <div class="row is-flex">
+        <div class="row is-flex">
 
-                <div class="col-sm-6">
+            <div class="col-sm-6 content">
 
-                    <form id="urlBox">
-                        <div class="input-group">
-                            <input class="url-box form-control" type="url" id="imgUrl"
-                                   placeholder="Drag image from above into this box for editing">
-                            <span class="input-group-btn">
+                <form id="urlBox">
+                    <div class="input-group">
+                        <input class="url-box form-control" type="url" id="imgUrl"
+                               placeholder="Drag image from above into this box for editing">
+                        <span class="input-group-btn">
                     <input id="go" type="button" value="Edit" class="btn btn-default" data-toggle="modal"
                            data-target="#myModal">
                     </span>
-                        </div>
-                    </form>
+                    </div>
+                </form>
 
-                </div>
+            </div>
 
-                <div class="col-sm-6">
-                    <div class="btn-group btn-group-justified" id="share-buttons">
+            <div class="col-sm-6">
+
+                <div class="text-right">
+                    <div class="btn-group" id="share-buttons">
                         <a ng-href="{{Lightbox.imageUrl}}" target="_blank"
                            class="btn  btn-default" title="Open in new tab to download or copy URL">
                             <i class="fa fa-download" aria-hidden="true"></i> Download
@@ -84,13 +85,12 @@
                            class="btn  btn-default">
                             <i class="fa fa-google-plus" aria-hidden="true"></i> Google
                         </a>
-
                     </div>
-
-
                 </div>
 
+
             </div>
+
         </div>
 
 

@@ -12,14 +12,15 @@
  * https://github.com/compact/angular-bootstrap-lightbox  *
  **********************************************************/
 
-angular.module('myApp', ['bootstrapLightbox']);
+var app2 = angular.module('myApp2', ['bootstrapLightbox']);
 
-angular.module('myApp').config(function (LightboxProvider) {
+app2.config(function (LightboxProvider) {
     // set a custom template
     LightboxProvider.templateUrl = 'lightboxtwo.html';
 });
 
-angular.module('myApp').controller('GalleryCtrl', function ($scope, Lightbox) {
+
+app2.controller('GalleryCtrl', function ($scope, Lightbox) {
 
     $scope.Lightbox = Lightbox;
 
@@ -80,12 +81,25 @@ angular.module('myApp').controller('GalleryCtrl', function ($scope, Lightbox) {
             'url': 'https://i.imgur.com/0ic5msXh.jpg',
             'title': 'img14'
         },
-        {
-            'url': 'https://i.imgur.com/EGgyVOqh.jpg',
-            'title': 'img15'
-        },
 
     ];
+
+    var newtitle = 1;
+
+    // add and remove based on https://stackoverflow.com/a/40433976/8657128
+    $scope.addItem = function(image){
+        $scope.images.push({
+           url: image, title: 'newimg' + newtitle++
+        });
+        $scope.image = null;
+
+        console.log("uploaded image url: " + image);
+    };
+
+    $scope.removeItem = function(image){
+        var index = $scope.images.indexOf(image);
+        $scope.images.splice(index, 1);
+    };
 
 
     $scope.openLightboxModal = function (index) {
