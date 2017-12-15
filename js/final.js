@@ -19,7 +19,6 @@ app2.config(function (LightboxProvider) {
     LightboxProvider.templateUrl = 'lightboxtwo.html';
 });
 
-
 app2.controller('GalleryCtrl', function ($scope, Lightbox) {
 
     $scope.Lightbox = Lightbox;
