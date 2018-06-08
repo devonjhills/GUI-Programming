@@ -1,6 +1,6 @@
 # Bootstrap!
 
-Updated all previous assignments bootstrap. Below are before and after images.
+Updated all previous assignments using bootstrap. Below are before and after images.
 
 ![](/images/compare1.png)
 
